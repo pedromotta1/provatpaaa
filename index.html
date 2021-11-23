@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poupar</title>
+    <link href="css.css" rel="stylesheet">
+    <script>
+        function calcular()
+        {
+        if(form1.nome.value == "")
+        {alert("Digite o seu nome!");}
+        else if(form1.valor.value == "")
+        {alert("Digite o valor aplicado mensalmente!");}
+        else if(form1.juros.value == "")
+        {alert("Digite a taxa de juros!");}
+        else if(form1.parcelas.value == "")
+        {alert("Digite a duração!");}
+
+        else
+        {
+            total = ((form1.valor.value * ((1 + form1.juros.value/100) ** form1.parcelas.value - 1)/ form1.juros.value/100) * 10000).toFixed(2)
+            alert(form1.nome.value +", se vc aplicar R$" + form1.valor.value +",00 à taxa de juros de " +form1.juros.value+"% ao mês, durante "+ form1.parcelas.value +" meses, acumulará uma poupança de R$" + total)
+     }
+}
+        </script>
+</head>
+        <body>
+<h2>Poupe!</h2>
+            <form name="form1">
+
+                <div>
+                <label>Seu nome:</label>
+                <input class="form-control" type="text" name="nome">
+                </div>
+                <br>
+
+                <div>
+                <label for="InputEndereço1">O valor aplicado mensalmente:</label>
+                <input type="text" class="form-control" name = "valor" >
+                </div>
+                <br>
+
+                <div>
+                <label>A taxa de juros:</label>
+                <input type="text" class="form-control" name = "juros">
+                </div>
+                <br>
+
+                <div>
+                <label>O números de parcelas:</label>
+                <input type="text" class="form-control" name = "parcelas">
+                </div>
+                <br>
+
+                <div>
+                <input type = button value = "Calcular" class = "botao"  onmousedown="calcular()">
+                </div>
+
+            </form>  
+        </body>
+</html>
